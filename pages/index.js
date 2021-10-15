@@ -103,16 +103,13 @@ export default function Qr() {
       <QRCode
         value={`BEGIN:VCARD
 VERSION:3.0
-FN;CHARSET=UTF-8:Jaime Perez
-N;CHARSET=UTF-8:Perez;Jaime;;;
-EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:none@hotmail.com
-TEL;TYPE=CELL:6641234567
-TEL;TYPE=WORK,VOICE:6649876543
-TITLE;CHARSET=UTF-8:Secretario de Seguridad de Tijuana
-ORG;CHARSET=UTF-8:SSPCM
-REV:2021-10-15T15:40:50.278Z
-END:VCARD
-`}
+N;CHARSET=UTF-8:${lname2};${fname};${lname};${std};
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:${email}
+TEL;TYPE=WORK:${phone}
+TEL;TYPE=EXT:${ext}
+TITLE;CHARSET=UTF-8:${title}
+ORG;CHARSET=UTF-8:${org}
+END:VCARD`}
         renderAs="png"
         size="200"
         level="L"
