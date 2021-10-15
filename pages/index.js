@@ -102,14 +102,17 @@ export default function Qr() {
       </Head>
       <QRCode
         value={`
-BEGIN:VCARD
+        BEGIN:VCARD
 VERSION:3.0
-N;CHARSET=UTF-8:${lname2};${fname};${lname};${std};
-EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:${email}
-TEL;TYPE=WORK:${phone}
-TEL;TYPE=EXT:${ext}
-TITLE;CHARSET=UTF-8:${title}
-ORG;CHARSET=UTF-8:${org}
+FN;CHARSET=UTF-8:Jaime Jacinto Perez Perez
+N;CHARSET=UTF-8:Perez Perez;Jaime;Jacinto;Lic.;
+EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:none@hotmail.com
+TEL;TYPE=CELL:6641234567
+TEL;TYPE=WORK,VOICE:6649876543
+TITLE;CHARSET=UTF-8:Secretario de Seguridad de Tijuana
+ROLE;CHARSET=UTF-8:Full Stack
+ORG;CHARSET=UTF-8:SSPCM
+REV:2021-10-15T15:28:20.155Z
 END:VCARD
         `}
         renderAs="png"
