@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import QRCode from "qrcode.react";
+import { QRCodeCanvas } from 'qrcode.react';
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -26,36 +26,11 @@ export default function Qr() {
   const [std, setStd] = useState("");
   const [ext, setExt] = useState("");
 
-  function handleName(e) {
-    setName(e.target.value);
-  }
-  function handleLname(e) {
-    setLname(e.target.value);
-  }
-  function handleLname2(e) {
-    setLname2(e.target.value);
-  }
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
-  function handlePhone(e) {
-    setPhone(e.target.value);
-  }
-  function handleTitle(e) {
-    setTitle(e.target.value);
-  }
+
   function handleRole(e) {
     setRole(e.target.value);
   }
-  function handleOrg(e) {
-    setOrg(e.target.value);
-  }
-  function handleStd(e) {
-    setStd(e.target.value);
-  }
-  function handleExt(e) {
-    setExt(e.target.value);
-  }
+
 
   function handleClear() {
     setStd("");
@@ -100,7 +75,7 @@ export default function Qr() {
           crossOrigin="anonymous"
         />
       </Head>
-      <QRCode
+      <QRCodeCanvas
         value={`BEGIN:VCARD
 VERSION:3.0
 N;CHARSET=UTF-8:${lname2};${fname};${lname};${std};
@@ -110,8 +85,7 @@ TEL;TYPE=EXT:${ext}
 TITLE;CHARSET=UTF-8:${title}
 ORG;CHARSET=UTF-8:${org}
 END:VCARD`}
-        renderAs="png"
-        size="200"
+        size="300"
         level="L"
         id="canvas"
 
@@ -130,111 +104,111 @@ END:VCARD`}
                   value={std}
                   type="text"
                   placeholder="Lic."
-                  onChange={handleStd}
+                  onChange={(e) => setStd(e.target.value)}
                 />
               </Form.Group>
             </Col>
             <Col>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Nombre</Form.Label>
-              <Form.Control
-                value={fname}
-                type="text"
-                placeholder="Juan"
-                onChange={handleName}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control
+                  value={fname}
+                  type="name"
+                  placeholder="Juan"
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Form.Group>
             </Col>
             <Col>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Apellido Paterno</Form.Label>
-              <Form.Control
-                value={lname}
-                type="text"
-                placeholder="Perez"
-                onChange={handleLname}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Apellido Paterno</Form.Label>
+                <Form.Control
+                  value={lname}
+                  type="text"
+                  placeholder="Perez"
+                  onChange={(e) => setLname(e.target.value)}
+                />
+              </Form.Group>
             </Col>
           </Row>
 
           <Row>
             <Col>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Apellido Materno</Form.Label>
-              <Form.Control
-                value={lname2}
-                type="text"
-                placeholder="Perez"
-                onChange={handleLname2}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Apellido Materno</Form.Label>
+                <Form.Control
+                  value={lname2}
+                  type="text"
+                  placeholder="Perez"
+                  onChange={(e) => setLname2(e.target.value)}
+                />
+              </Form.Group>
             </Col>
             <Col>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              value={email}
-              type="email"
-              placeholder="nombre@ejemplo.com"
-              onChange={handleEmail}
-            />
-          </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  value={email}
+                  type="email"
+                  placeholder="nombre@ejemplo.com"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Form.Group>
             </Col>
             <Col>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Telefono</Form.Label>
-            <Form.Control
-              value={phone}
-              type="tel"
-              placeholder="6649876543"
-              onChange={handlePhone}
-            />
-          </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Telefono</Form.Label>
+                <Form.Control
+                  value={phone}
+                  type="tel"
+                  placeholder="6649876543"
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </Form.Group>
             </Col>
           </Row>
 
           <Row>
             <Col>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Extension</Form.Label>
-            <Form.Control
-              value={ext}
-              type="text"
-              placeholder="8520"
-              onChange={handleExt}
-            />
-          </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Extension</Form.Label>
+                <Form.Control
+                  value={ext}
+                  type="text"
+                  placeholder="8520"
+                  onChange={(e) => setExt(e.target.value)}
+                />
+              </Form.Group>
             </Col>
             <Col>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Puesto</Form.Label>
-            <Form.Control
-              value={title}
-              type="text"
-              placeholder="Secretario"
-              onChange={handleTitle}
-            />
-          </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Puesto</Form.Label>
+                <Form.Control
+                  value={title}
+                  type="text"
+                  placeholder="Secretario"
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </Form.Group>
             </Col>
             <Col>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Empresa</Form.Label>
-            <Form.Control
-              value={org}
-              type="text"
-              placeholder="Juan"
-              onChange={handleOrg}
-            />
-          </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Empresa</Form.Label>
+                <Form.Control
+                  value={org}
+                  type="text"
+                  placeholder="Juan"
+                  onChange={(e) => setOrg(e.target.value)}
+                />
+              </Form.Group>
             </Col>
           </Row>
 
-          <Row style={{justifyContent: 'space-evenly'}}>
-            <Button style={{width: '15%'}} onClick={download}>Descargar QR</Button>
-            <Button style={{width: '15%'}} onClick={handleClear}>Limpiar</Button>
+          <Row style={{ justifyContent: 'space-evenly' }}>
+            <Button style={{ width: '15%' }} onClick={download}>Descargar QR</Button>
+            <Button style={{ width: '15%' }} onClick={handleClear}>Limpiar</Button>
           </Row>
-          
+
         </Form>
       </Container>
     </div>
